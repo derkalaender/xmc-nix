@@ -42,7 +42,7 @@ nix develop github:derkalaender/xmc-nix
 ```
 This will populate your environment with the necessary tools and set the environment variable `XMC_LIBDIR` to the path of the xmclib. Remove any hard-coded path or explicit setting of `XMC_LIBDIR` in your build system (e.g. Makefile).
 
-For better convience, use [direnv](https://github.com/direnv/direnv) with the [nix-direnv](https://github.com/nix-community/nix-direnv) implementation to automatically spawn the dev shell. For this, create a `.envrc` file in your project directory like so
+For better convience, use [direnv](https://github.com/direnv/direnv) with the [nix-direnv](https://github.com/nix-community/nix-direnv) implementation to automatically spawn the dev shell. For this, create a `.envrc` file in your project with the following content
 ```
 use flake github:derkalaender/xmc-nix
 ```

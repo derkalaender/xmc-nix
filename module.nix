@@ -1,4 +1,4 @@
-self: nixpkgs: {
+nixpkgs: {
   lib,
   pkgs,
   config,

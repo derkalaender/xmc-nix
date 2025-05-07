@@ -37,6 +37,6 @@
         };
     }))
     // {
-      nixosModules.default = import ./module.nix self nixpkgs;
+      nixosModules.jlink = import ./module.nix self nixpkgs;
     };
 }

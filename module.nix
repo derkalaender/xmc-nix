@@ -4,12 +4,16 @@ self: nixpkgs: {
   config,
   ...
 }: let
-  inherit (lib) getName mkEnableOption mkOption types mkIf;
+  inherit (lib) getName hasPrefix mkEnableOption mkOption types mkIf;
 
+  # This hack gives us a custom pkgs which allows jlink to be installed
+  # without the user having to explicitly set all of these configuration options
   system = pkgs.stdenv.system;
   specialPkgs = import nixpkgs {
     inherit system;
     config.allowUnfreePredicate = pkg: (getName pkg == "segger-jlink");
+    config.allowInsecurePredicate = pkg: (hasPrefix (getName pkg) "segger-jlink-qt4");
+    config.segger-jlink.acceptLicense = true;
   };
 
   cfg = config.programs.jlink;
